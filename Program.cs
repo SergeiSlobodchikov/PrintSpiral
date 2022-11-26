@@ -6,15 +6,15 @@ int row = Convert.ToInt32(Console.ReadLine());
 int column = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = new int[row, column];
-int counter = 1;
+int count = 1;
 int x = 0;
 int y = 0;
 int corner = 0;
 
 Console.Clear();
-PrintSpiralW(array, corner, y, x);
+PrintSpiralW(array, corner, y, x, count);
 
-void PrintSpiralW(int[,] array, int corner, int i, int j)
+void PrintSpiralW(int[,] array, int corner, int i, int j, int counter)
 {  
     int numColumn = array.GetLength(1);
     int numRow = array.GetLength(0);
@@ -66,10 +66,7 @@ void PrintSpiralW(int[,] array, int corner, int i, int j)
         }
         counter++;
 
-        if ((i == corner + 1) && (j == corner) && (corner != numColumn - corner - 1))
-        {
-            PrintSpiralW(array, corner + 1, i, j);
-        }
+        if ((i == corner + 1) && (j == corner) && (corner != numColumn - corner - 1)) corner++;
     }
     return;
 }
